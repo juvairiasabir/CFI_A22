@@ -112,19 +112,26 @@
 
 // Armstrong Number of Three Digits
 
-let num=153
-n = ('' + num).length
-sum=0
-temp = num
+// let num=153
+// n = ('' + num).length
+// sum=0
+// temp = num
 
-while (num>0){
-    sum += (num%10)**n
-    num = (num/10)-(num/10)%1
+// while (num>0){
+//     sum += (num%10)**n
+//     num = (num/10)-(num/10)%1
+// }
+// if(sum==temp){
+//     console.log('armstrong')
+// }
+// else {
+//     console.log('not an armstrong')
+// }
+
+function (Toyota){
+    return (n+2)
 }
-if(sum==temp){
-    console.log('armstrong')
-}
-else {
-    console.log('not an armstrong')
-}
+
+
+    
 
