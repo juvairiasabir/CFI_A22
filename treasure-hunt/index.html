@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Treasure Hunt Game</title>
   </head>
   <body>
@@ -13,7 +14,9 @@
       <h1>Attempts : <span id="attempts"></span></h1>
     </div>
     <div>
-      <table id="my-game"></table>
+      <center>
+        <table id="my-game"></table>
+      </center>
     </div>
   </body>
   <script>
@@ -28,29 +31,52 @@
 
       //Generate TableData from 1 to 100
       const tableData = [];
+
       for (let i = 1; i <= 100; i++) {
         //Push Elements 1 to 100
         tableData.push(i);
       }
       console.log(tableData);
+      tableData.sort(() => Math.random() - 0.5);
 
       //Access Table Tag
       let table = document.getElementById("my-game");
       let row,
         col,
         counter = 0;
+      let primesArray = [2, 3, 5, 7];
       for (let i = 1; i <= 10; i++) {
         // Generate Row Tags <tr>
         row = document.createElement("tr");
         for (let j = 1; j <= 10; j++) {
-          //Generate <td> Tags   
+          //Generate <td> Tags
           col = document.createElement("td");
 
           //Assign ID From Counter
-          col.id = counter + 1;
+          col.id = tableData[counter];
 
           //Add Inner Text from Table Data
-          col.innerText = tableData[counter];
+          // col.innerText = tableData[counter];
+
+          col.addEventListener("click", function (event) {
+            // console.log(event.target.id);
+            let clickedNumber = event.target.id;
+            console.log(clickedNumber);
+            if (clickedNumber == 1) {
+              document.getElementById(clickedNumber).innerText = clickedNumber;
+              alert("You are a Winner, Congratulations!!!!");
+            } else if (primesArray.includes(+clickedNumber)) {
+              alert("You are Loser! Better Luck Next Time");
+            } else if (visitedElements.includes(+clickedNumber)){
+              alert("Block is already selected");
+            } else {
+              visitedElements.push(+clickedNumber);
+            }
+              attempt++;
+              document.getElementById("attempts").innerText = attempt;
+              document.getElementById(clickedNumber).style.backgroundColor="aquamarine";
+            
+          });
 
           //Append the td Tag to the Row
           row.appendChild(col);
