@@ -55,7 +55,6 @@ a = 2,b = 4
 var a=4, b=4, c=3
 console.log(a**b)
 
-
 console.log(a**b**c+b/a%c)
 
 
