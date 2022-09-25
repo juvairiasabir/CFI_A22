@@ -128,9 +128,9 @@
 //     console.log('not an armstrong')
 // }
 
-function (Toyota){
-    return (n+2)
-}
+// function (Toyota){
+//     return (n+2)
+// }
 
 
     
